@@ -5,5 +5,6 @@ class HelloWorldController < ApplicationController
 
   def index
     @hello_world_props = { name: "Stranger" }
+    @audio_clip = AudioClip.new
   end
 end
