@@ -12,8 +12,6 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    // How to set initial state in ES6 class syntax
-    // https://reactjs.org/docs/state-and-lifecycle.html#adding-local-state-to-a-class
     this.state = { name: this.props.name };
     this.createAudioClip = this.createAudioClip.bind(this)
   }
@@ -23,10 +21,15 @@ export default class App extends React.Component {
   };
 
   createAudioClip = (name) => {
-    console.log('being pressed!')
+    var csrfToken = document.querySelector('meta[name=csrf-token]').content
+    // .attr('content');
+    console.log(csrfToken)
     fetch('/create_audio_clip', {
       method: 'POST',
-      body: "some data",
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': csrfToken
+      }
     })
   }
 
