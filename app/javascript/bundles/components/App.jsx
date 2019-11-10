@@ -15,11 +15,20 @@ export default class App extends React.Component {
     // How to set initial state in ES6 class syntax
     // https://reactjs.org/docs/state-and-lifecycle.html#adding-local-state-to-a-class
     this.state = { name: this.props.name };
+    this.createAudioClip = this.createAudioClip.bind(this)
   }
 
   updateName = (name) => {
     this.setState({ name });
   };
+
+  createAudioClip = (name) => {
+    console.log('being pressed!')
+    fetch('/create_audio_clip', {
+      method: 'POST',
+      body: "some data",
+    })
+  }
 
   render() {
     return (
@@ -39,6 +48,9 @@ export default class App extends React.Component {
             onChange={(e) => this.updateName(e.target.value)}
           />
         </form>
+        <button onClick={this.createAudioClip}>
+          Press Me
+        </button>
       </div>
     );
   }
