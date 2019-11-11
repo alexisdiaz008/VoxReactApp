@@ -22,7 +22,6 @@ export default class App extends React.Component {
 
   createAudioClip = (name) => {
     var csrfToken = document.querySelector('meta[name=csrf-token]').content
-    // .attr('content');
     console.log(csrfToken)
     fetch('/create_audio_clip', {
       method: 'POST',
