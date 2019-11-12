@@ -7,7 +7,9 @@ class AppController < ApplicationController
   end
 
   def create_audio_clip
+  	sleep(3)
   	p "testtestsetstest"
+
     # @audio_clip = AudioClip.new
   end
 end

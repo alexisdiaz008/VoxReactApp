@@ -32,6 +32,19 @@ export default class App extends React.Component {
     })
   }
 
+  returnForm() {
+    var csrfToken = document.querySelector('meta[name=csrf-token]').content
+    return (
+      <form action="/create_audio_clip" acceptCharset="UTF-8" data-remote="true" method="post">
+        <input name="utf8" type="hidden" value="✓"/>
+        <input type="hidden" name="authenticity_token" value={csrfToken}/>
+        <input className="form-control" type="text" name="audio_clip[name]" id="user_name"/>
+        <input type="file" name="audio_clip[clip]"/>
+        <input type="submit" name="commit" value="Create User" className="mt-3 default-button" data-disable-with="Creating User..."/>
+      </form>
+      )
+  }
+
   render() {
     return (
       <div>
@@ -53,7 +66,8 @@ export default class App extends React.Component {
         <button onClick={this.createAudioClip}>
           Press Me
         </button>
+        {this.returnForm()}
       </div>
-    );
+    )
   }
 }
