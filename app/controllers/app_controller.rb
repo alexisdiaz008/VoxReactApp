@@ -7,9 +7,13 @@ class AppController < ApplicationController
   end
 
   def create_audio_clip
-  	sleep(3)
-  	p "testtestsetstest"
+  	sleep(1)
+  	p "#{params}"
+    @audio_clip = AudioClip.create(audio_clip_params)
+    p @audio_clip
+  end
 
-    # @audio_clip = AudioClip.new
+  def audio_clip_params
+  	params.require(:audio_clip).permit(:name, :clip)
   end
 end
