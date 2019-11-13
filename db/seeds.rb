@@ -7,4 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Generate audioclips
-# AudioClip.create(name:"Test clip", clip: clip_from_public_folder )
+
+audio_clip = AudioClip.create(name:"Test clip")
+file = File.open(File.join(Rails.root, "/public/Bloch_Prayer.mp3"))
+audio_clip.clip.attach(io: file, filename: "application/mp3", content_type: "application/mp3")
