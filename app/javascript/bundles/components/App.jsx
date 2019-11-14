@@ -22,7 +22,6 @@ export default class App extends React.Component {
 
   createAudioClip = (e) => {
     e.preventDefault();
-
     var formElement = document.querySelector('[audio-clip-form]')
     var data = new FormData(formElement)
     var csrfToken = document.querySelector('meta[name=csrf-token]').content
@@ -32,23 +31,20 @@ export default class App extends React.Component {
       headers: {
         'X-CSRF-Token': csrfToken
       }
-    }).then(request => console.log(request))
+    })
   }
 
   render() {
     return (
       <div>
         <h3>
-          Hello, {this.state.name}!
+          FileName: {this.state.name}!
         </h3>
         <hr />
         <form 
           audio-clip-form=''
           onSubmit={this.createAudioClip}
         >
-          <label htmlFor="name">
-            Say hello to:
-          </label>
           <input
             id="name"
             name="audio_clip[name]"
@@ -58,7 +54,7 @@ export default class App extends React.Component {
           />
           <input
             id="clip"
-            name="audio-clip"
+            name="audio_clip[clip]"
             data-audio-clip=''
             type='file'
           />
