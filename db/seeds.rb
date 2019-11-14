@@ -10,4 +10,4 @@
 
 audio_clip = AudioClip.create(name:"Test clip")
 file = File.open(File.join(Rails.root, "/public/Bloch_Prayer.mp3"))
-audio_clip.clip.attach(io: file, filename: "application/mp3", content_type: "application/mp3")
+audio_clip.clip.attach(io: file, filename: "Bloch_Prayer.mp3", content_type: "application/mp3")

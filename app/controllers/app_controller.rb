@@ -8,9 +8,11 @@ class AppController < ApplicationController
 
   def create_audio_clip
   	sleep(1)
-  	p "#{params}"
-    @audio_clip = AudioClip.create(audio_clip_params)
-    p @audio_clip
+  	p params['app']
+  	# p JSON.parse("#{params}")
+    # @audio_clip = AudioClip.create(audio_clip_params)
+    # @audio_clip.image.attach io: File.open("/file/to/path"), filename: "image.jpg", content_type: "image/jpg"
+    # p @audio_clip
   end
 
   def audio_clip_params

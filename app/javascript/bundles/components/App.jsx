@@ -25,24 +25,12 @@ export default class App extends React.Component {
     console.log(csrfToken)
     fetch('/create_audio_clip', {
       method: 'POST',
+      body: JSON.stringify({'something1':'something2'}),
       headers: {
         'Content-Type': 'application/json',
         'X-CSRF-Token': csrfToken
       }
     })
-  }
-
-  returnForm() {
-    var csrfToken = document.querySelector('meta[name=csrf-token]').content
-    return (
-      <form action="/create_audio_clip" acceptCharset="UTF-8" data-remote="true" method="post">
-        <input name="utf8" type="hidden" value="✓"/>
-        <input type="hidden" name="authenticity_token" value={csrfToken}/>
-        <input className="form-control" type="text" name="audio_clip[name]" id="user_name"/>
-        <input type="file" name="audio_clip[clip]"/>
-        <input type="submit" name="commit" value="Create User" className="mt-3 default-button" data-disable-with="Creating User..."/>
-      </form>
-      )
   }
 
   render() {
@@ -52,21 +40,23 @@ export default class App extends React.Component {
           Hello, {this.state.name}!
         </h3>
         <hr />
-        <form >
-          <label htmlFor="name">
-            Say hello to:
-          </label>
-          <input
-            id="name"
-            type="text"
-            value={this.state.name}
-            onChange={(e) => this.updateName(e.target.value)}
-          />
-        </form>
+        <label htmlFor="name">
+          Say hello to:
+        </label>
+        <input
+          id="name"
+          type="text"
+          value={this.state.name}
+          onChange={(e) => this.updateName(e.target.value)}
+        />
+        <input
+          id="clip"
+          data-audio-clip=''
+          type='file'
+        />
         <button onClick={this.createAudioClip}>
-          Press Me
+          Create User
         </button>
-        {this.returnForm()}
       </div>
     )
   }
