@@ -20,17 +20,19 @@ export default class App extends React.Component {
     this.setState({ name });
   };
 
-  createAudioClip = (name) => {
+  createAudioClip = (e) => {
+    e.preventDefault();
+
+    var formElement = document.querySelector('[audio-clip-form]')
+    var data = new FormData(formElement)
     var csrfToken = document.querySelector('meta[name=csrf-token]').content
-    console.log(csrfToken)
     fetch('/create_audio_clip', {
       method: 'POST',
-      body: JSON.stringify({'something1':'something2'}),
+      body: data,
       headers: {
-        'Content-Type': 'application/json',
         'X-CSRF-Token': csrfToken
       }
-    })
+    }).then(request => console.log(request))
   }
 
   render() {
@@ -40,23 +42,31 @@ export default class App extends React.Component {
           Hello, {this.state.name}!
         </h3>
         <hr />
-        <label htmlFor="name">
-          Say hello to:
-        </label>
-        <input
-          id="name"
-          type="text"
-          value={this.state.name}
-          onChange={(e) => this.updateName(e.target.value)}
-        />
-        <input
-          id="clip"
-          data-audio-clip=''
-          type='file'
-        />
-        <button onClick={this.createAudioClip}>
-          Create User
-        </button>
+        <form 
+          audio-clip-form=''
+          onSubmit={this.createAudioClip}
+        >
+          <label htmlFor="name">
+            Say hello to:
+          </label>
+          <input
+            id="name"
+            name="audio_clip[name]"
+            type="text"
+            value={this.state.name}
+            onChange={(e) => this.updateName(e.target.value)}
+          />
+          <input
+            id="clip"
+            name="audio-clip"
+            data-audio-clip=''
+            type='file'
+          />
+          <input
+            type='submit'
+            value='Create an Audio Clip'
+          />
+        </form>
       </div>
     )
   }
