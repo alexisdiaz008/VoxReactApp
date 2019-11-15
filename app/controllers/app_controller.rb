@@ -3,7 +3,10 @@
 class AppController < ApplicationController
 
   def index
-    @hello_world_props = { name: "Test File" }
+    @props = { 
+    	name: "Test File",
+    	audio_clip: AudioClip.last.clip
+     }
   end
 
   def create_audio_clip

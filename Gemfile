@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.2'
 
+
 gem 'react_on_rails', '11.1.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1.rc1'
@@ -35,6 +36,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "foreman"
   gem "binding_of_caller"
   gem "better_errors"
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

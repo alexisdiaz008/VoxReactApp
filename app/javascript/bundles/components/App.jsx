@@ -3,7 +3,8 @@ import React from 'react';
 
 export default class App extends React.Component {
   static propTypes = {
-    name: PropTypes.string.isRequired, // this is passed from the Rails view
+    name: PropTypes.string.isRequired,
+    audio_clip: PropTypes.element // this is passed from the Rails view
   };
 
   /**
@@ -12,7 +13,11 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { name: this.props.name };
+    this.state = { 
+      name: this.props.name,
+      audio_clip: this.props.audio_clip
+    }
+
     this.createAudioClip = this.createAudioClip.bind(this)
   }
 
@@ -35,10 +40,13 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <h3>
-          FileName: {this.state.name}!
+          File Name: {this.state.name}
+          <br/>
+          File: <a href="{this.state.audio_clip}" value="text"/>
         </h3>
         <hr />
         <form 
