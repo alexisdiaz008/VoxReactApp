@@ -3,6 +3,7 @@
 class AppController < ApplicationController
 
   def index
+  	@audio_clips = AudioClip.all
     @props = { 
     	name: "Test File",
     	audio_clip: AudioClip.last.clip
@@ -14,7 +15,6 @@ class AppController < ApplicationController
   	p params
   	# p JSON.parse("#{params}")
     @audio_clip = AudioClip.create(audio_clip_params)
-    # @audio_clip.clip.attach io: File.open(params['audio_clip']['clip']), filename: "test", content_type: "image/jpg"
     p @audio_clip
   end
 
