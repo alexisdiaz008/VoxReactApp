@@ -1,4 +1,4 @@
-import styles from '../styles/application.scss'
+// import styles from '../styles/application.scss'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -43,7 +43,7 @@ export default class App extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <div>
+      <div className="container">
         <h3>
           File Name: {this.state.name}
           <br/>
