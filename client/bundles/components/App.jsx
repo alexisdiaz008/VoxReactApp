@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import styles from '../styles/application.scss'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 export default class App extends React.Component {
   static propTypes = {
