@@ -18,6 +18,12 @@ class AppController < ApplicationController
     p @audio_clip
   end
 
+  def show_audio_clip
+    @audio_clip = AudioClip.find(params[:id])
+    p @audio_clip
+  end
+
+private
   def audio_clip_params
   	params.require(:audio_clip).permit(:name, :clip)
   end
