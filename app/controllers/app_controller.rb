@@ -3,10 +3,9 @@
 class AppController < ApplicationController
 
   def index
-  	@audio_clips = AudioClip.all
     @props = { 
     	name: "Test File",
-    	audio_clip: AudioClip.last.clip
+    	audio_clips: AudioClip.all.pluck(:id)
      }
   end
 

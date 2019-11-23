@@ -5,7 +5,7 @@ import React from 'react'
 export default class App extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    audio_clip: PropTypes.element // this is passed from the Rails view
+    audio_clips: PropTypes.array.isRequired // this is passed from the Rails view
   };
 
   /**
@@ -16,7 +16,7 @@ export default class App extends React.Component {
 
     this.state = { 
       name: this.props.name,
-      audio_clip: this.props.audio_clip
+      audio_clips: this.props.audio_clips
     }
 
     this.createAudioClip = this.createAudioClip.bind(this)
