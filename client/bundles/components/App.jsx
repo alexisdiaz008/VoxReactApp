@@ -47,7 +47,7 @@ export default class App extends React.Component {
         <h3>
           File Name: {this.state.name}
           <br/>
-          File: <a href="{this.state.audio_clip}" value="text"/>
+          File: <a href={this.state.audio_clips}>AudioClipLink</a>
         </h3>
         <hr />
         <form 
