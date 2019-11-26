@@ -1,11 +1,10 @@
-# frozen_string_literal: true
-
 class AppController < ApplicationController
 
   def index
+    audio_clips = AudioClip.all.pluck(:id, :clip)
     @props = { 
     	name: "Test File",
-    	audio_clips: polymorphic_url(AudioClip.all.first.clip)
+    	audio_clips: polymorphic_url(AudioClip.all.last.clip)
      }
   end
 
@@ -16,11 +15,6 @@ class AppController < ApplicationController
     @audio_clip = AudioClip.create(audio_clip_params)
     p @audio_clip
   end
-
-  # def show_audio_clip
-  #   @audio_clip = AudioClip.find(params[:id])
-  #   p @audio_clip.clip
-  # end
 
 private
   def audio_clip_params

@@ -5,7 +5,7 @@ import React from 'react'
 export default class App extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    audio_clips: PropTypes.array.isRequired // this is passed from the Rails view
+    audio_clips: PropTypes.string.isRequired // this is passed from the Rails view
   };
 
   /**
@@ -47,7 +47,7 @@ export default class App extends React.Component {
         <h3>
           File Name: {this.state.name}
           <br/>
-          File: <a href={this.state.audio_clips}>AudioClipLink</a>
+          File: <a className="html5" href={this.state.audio_clips}>AudioClipLink</a>
         </h3>
         <hr />
         <form 
