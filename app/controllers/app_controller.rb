@@ -1,7 +1,7 @@
 class AppController < ApplicationController
 
   def index
-    audio_clips = AudioClip.all.pluck(:id, :clip)
+    audio_clips = AudioClip.all.pluck(:id)
     @props = { 
     	name: "Test File",
     	audio_clips: polymorphic_url(AudioClip.all.last.clip)
