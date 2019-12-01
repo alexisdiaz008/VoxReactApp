@@ -4,7 +4,7 @@ class AppController < ApplicationController
     audio_clips = Hash[AudioClip.all.map {|audio_clip| [audio_clip.id, polymorphic_url(audio_clip.clip)] }]
     @props = { 
     	name: "Test File",
-    	audio_clips: polymorphic_url(AudioClip.all.last.clip)
+    	audio_clips: audio_clips
      }
   end
 
