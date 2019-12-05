@@ -59,12 +59,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h3>
-          File Name: {this.state.name}
-          <br/>
-          {this.returnAudioClips()}
-        </h3>
-        <hr />
         <form 
           audio-clip-form=''
           onSubmit={this.createAudioClip}
@@ -87,6 +81,12 @@ export default class App extends React.Component {
             value='Create an Audio Clip'
           />
         </form>
+        <h3>
+          File Name: {this.state.name}
+          <br/>
+          {this.returnAudioClips()}
+        </h3>
+        <hr />
       </div>
     )
   }
