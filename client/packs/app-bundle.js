@@ -1,6 +1,6 @@
 import ReactOnRails from 'react-on-rails';
 
-import App from '../bundles/components/App';
+import App from '../app/bundles/components/App';
 
 // This is how React on Rails is able to reference your component from a Rails view.
 // this replaces ReactDOM.render(<App />, document.getElementById("root")) for us, as we now reference with:

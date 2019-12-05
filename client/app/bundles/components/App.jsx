@@ -1,4 +1,5 @@
-// import styles from '../styles/application.scss'
+// import styles from './application.scss'
+// import styles from '.../assets/styles/application.scss'
 import PropTypes from 'prop-types'
 import React from 'react'
 
